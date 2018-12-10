@@ -27,12 +27,12 @@ while(((opt=getopt(argc,argv,"p")) != -1))
   		if (j < g)
   		  success = 1;
  		else
-  		  success = 0;
+  		  success = 2;
 		break;
 	}
    }
 }
 //  printf ("\n%d\n",j);
   gsl_rng_free (random);
-  return j;
+  return success;
 }
