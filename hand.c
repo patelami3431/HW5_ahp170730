@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <gsl/gsl_rng.h>
 #include <stdlib.h>
-
+#include <time.h>
 int main (int argc,char *argv[])
 {
   const gsl_rng_type * type;
@@ -15,6 +15,7 @@ int main (int argc,char *argv[])
   int u;
   int j;
   int success;
+  gsl_rng_set(random,time(NULL));
 while(((opt=getopt(argc,argv,"p")) != -1))
 {
   switch(opt)
@@ -31,6 +32,7 @@ while(((opt=getopt(argc,argv,"p")) != -1))
 	}
    }
 }
+//  printf ("\n%d\n",j);
   gsl_rng_free (random);
-  return success;
+  return j;
 }
