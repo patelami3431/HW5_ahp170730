@@ -10,6 +10,11 @@ int main (int argc,char *argv[])
   gsl_rng_env_setup();
   type = gsl_rng_default;
   random = gsl_rng_alloc (type);
+  if (random == NULL)
+  {
+  	fprintf(stderr, "\nNot enough space to allocate in the memory\n");
+	exit(1);
+  }
   int g =atoi(argv[2]);
   int opt;
   int u;
@@ -32,7 +37,6 @@ while(((opt=getopt(argc,argv,"p")) != -1))
 	}
    }
 }
-//  printf ("\n%d\n",j);
   gsl_rng_free (random);
   return success;
 }
